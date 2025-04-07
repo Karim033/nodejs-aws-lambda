@@ -11,5 +11,9 @@ functions:
   app:
     handler: dist/app.handler
     events:
-      - http: ANY /
-      - http: ANY /{proxy+}
+      - http:
+          path: products/
+          method: GET
+      - http: 
+          path: products/
+          method: POST
