@@ -1,0 +1,15 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: karim1
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: nodejs-aws-lambda
+service: nodejs-aws-lambda
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: eu-south-1
+functions:
+  app:
+    handler: dist/app.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
